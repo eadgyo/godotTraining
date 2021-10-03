@@ -1,0 +1,8 @@
+[gd_resource type="AnimationNodeTransition" format=2]
+
+[resource]
+input_count = 2
+input_0/name = "state 0"
+input_0/auto_advance = true
+input_1/name = "state 1"
+input_1/auto_advance = true
