@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 4096
+curve = SubResource( 5 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 295, -54, 103, 36, 106, 189, 457, 375, 474, 31, 379, -58 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+cull_mode = 2
+polygon = PoolVector2Array( 521, -79, 524, 283, 728, 312, 1044, 265, 1059, 40, 1032, -192, 800, -318, 558, -257 )
+
+[sub_resource type="OccluderPolygon2D" id=7]
+cull_mode = 1
+polygon = PoolVector2Array( 1227, -482, 1947, 194, 3145, 160, 2824, -852, 1535, -864 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -1246, -96 )
+scale = Vector2( 0.594233, 209.963 )
+texture = SubResource( 6 )
+texture_scale = 5.42
+energy = 14.91
+shadow_enabled = true
+shadow_color = Color( 1, 1, 1, 1 )
+shadow_gradient_length = 526.1
+shadow_filter = 1
+shadow_filter_smooth = 7.0
+shadow_item_cull_mask = 639
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -150, -240 )
+occluder = SubResource( 3 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource( 4 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+occluder = SubResource( 7 )

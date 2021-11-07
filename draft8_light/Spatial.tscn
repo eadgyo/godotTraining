@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="Environment" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1.00551, -0.185673, -7.29512e-13, -0.0249368, 2.50712, 3.5704e-10, 9.63611e-12, -8.95277e-10, 1, -0.0528779, 2.4093, 0.00592148 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1.03754, -1.82373, -3.01359e-10, -0.244936, 15.7868, 3.49815e-09, 1.29859e-10, -8.77947e-09, 1, -5.48851, 2.15373, 0.0177644 )
+width = 2.14332
+height = 0.373291
+depth = 2.3749
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1.01568, -0.652202, -6.77558e-11, -0.0875938, 6.29029, 1.2522e-09, 4.16507e-11, -3.14164e-09, 1, 3.59611, 2.28552, 0.011843 )
+height = 0.898331
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 17.1185, 0, 0, 0, 0.31489, 0, 0, 0, 12.8982, 0, -1.91211, 0 )
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92467, -0.228325, 1.14564 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59699, -0.340731, -1.06974 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.49888, 18.6022 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17619, 0, 4.52834 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.945541, 0.325502, 0, -0.325502, 0.945541, 2.53013, 10.9235, 12.1363 )
+visible = false
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.3909, 0 )
+visible = false
+shadow_enabled = true
+omni_range = 33.691
+omni_attenuation = 1.07177
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.921267, 0.388931, 0, -0.388931, 0.921267, 0, 3.52537, 8.31549 )
+shadow_enabled = true
+spot_range = 21.243
+spot_angle = 66.91
