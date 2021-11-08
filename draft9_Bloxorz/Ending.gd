@@ -14,6 +14,6 @@ func _on_Ending_body_entered(body):
 
 func _on_GravityTimer_timeout(block, body):
 	block.win()
-	block.gravity_scale()
 	$GravityTimer.disconnect("timeout", self, "_on_GravityTimer_timeout")
 	
+
