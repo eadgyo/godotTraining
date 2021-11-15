@@ -11,6 +11,10 @@ config_version=4
 [application]
 
 config/name="Draft 10 Env"
+<<<<<<< HEAD
+=======
+run/main_scene="res://GlobalIllumniation.tscn"
+>>>>>>> 67275009d835f6d6406567b867f0e7100ba63a6c
 config/icon="res://icon.png"
 
 [physics]

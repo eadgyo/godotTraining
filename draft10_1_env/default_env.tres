@@ -1,5 +1,11 @@
 [gd_resource type="Environment" load_steps=2 format=2]
+<<<<<<< HEAD
 [sub_resource type="ProceduralSky" id=1]
+=======
+
+[sub_resource type="ProceduralSky" id=1]
+
+>>>>>>> 67275009d835f6d6406567b867f0e7100ba63a6c
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
