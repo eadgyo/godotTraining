@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="QuadMesh" id=4]
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Telivision/Viewport")
+
+[sub_resource type="SpatialMaterial" id=5]
+resource_local_to_scene = true
+albedo_texture = SubResource( 6 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Level" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.807, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87624, 0, -3.5907 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Level"]
+transform = Transform( 12.5223, 0, 0, 0, 0.160529, 0, 0, 0, 8.69015, 0.339555, -1.37835, -1.90458 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Player" type="Spatial" parent="."]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.960391, 0.278656, 0, -0.278656, 0.960391, 0, 1.43815, 5.19741 )
+
+[node name="Telivision" type="MeshInstance" parent="."]
+transform = Transform( 1.16683, 0, -0.0744611, 0, 0.985278, 0, 0.834905, 0, 0.104064, 5.10501, 7.15256e-07, -1.53859 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Screen" type="MeshInstance" parent="Telivision"]
+transform = Transform( 1.5, 0, -2.98023e-08, 0, 1.2, 0, -1.43051e-06, 0, 7.815, 0, 0, 1.1 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="Telivision"]
+size = Vector2( 512, 512 )
+
+[node name="Camera" type="Camera" parent="Telivision/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.131426, 0.991326, 0, -0.991326, 0.131426, 0, 6.15796, 0 )
+
+[node name="Telivision2" type="MeshInstance" parent="Telivision"]
+transform = Transform( 1.16683, 0, -0.0744611, 0, 0.985278, 0, 0.834904, 0, 0.104064, 0.789518, 7.15256e-07, 33.0847 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Screen" type="MeshInstance" parent="Telivision/Telivision2"]
+transform = Transform( 1.5, 0, -2.98023e-08, 0, 1.2, 0, -1.43051e-06, 0, 7.815, 0, 0, 1.1 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
+[node name="Viewport2" type="Viewport" parent="Telivision/Telivision2"]
+size = Vector2( 512, 512 )
+
+[node name="Camera" type="Camera" parent="Telivision/Telivision2/Viewport2"]
+transform = Transform( 1, 0, 0, 0, 0.131426, 0.991326, 0, -0.991326, 0.131426, 0, 6.15796, 0 )

@@ -9,8 +9,9 @@
 config_version=4
 
 [application]
-config/name="Draft 10 Env"
-run/main_scene="res://GlobalIllumniation.tscn"
+
+config/name="Draft"
+run/main_scene="res://Main2D.tscn"
 config/icon="res://icon.png"
 
 [physics]
