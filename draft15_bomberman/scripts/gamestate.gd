@@ -5,7 +5,7 @@ signal waiting_for_players
 var players = {}
 var player_nickname = "Dummy"
 var game_started = false
-
+var arena = preload("res://sub/areana1.tscn").instance()
 
 var MAX_PLAYERS = 4
 var player_scene = preload("res://sub/Player.tscn")
@@ -19,7 +19,7 @@ func _ready():
 	
 func _player_disconnected(id):
 	# Each peer get this notification when a peer disapears
-	var player_node = get_node("/root/Arena/Players/%s" % id)
+	var player_node = arena.get_node("Players/%s" %id)
 	if player_node:
 		player_node.queue_free()
 	players.erase(id)
@@ -68,7 +68,6 @@ slave func register_player(id, name):
 	
 sync func start_game():
 	# Load the main game scene
-	var arena = load("res://sub/areana1.tscn").instance()
 	get_tree().get_root().add_child(arena)
 	#get_tree().get_root().replace_by(arena)
 	var spawn_positions = arena.get_node("SpawnPositions").get_children()

@@ -13,6 +13,7 @@ onready var tilemap = get_node("/root/Arena/TileMap")
 
 sync func damage(id):
 	if (self.id == id) and dead != true:
+		print("death %s" % id)
 		dead = true
 		$AnimationPlayer.play("Death")
 
@@ -55,8 +56,8 @@ func _update_rot_and_animation():
 
 
 func _process(delta):
-	rpc_unreliable("_update_pos", position, direction)
-	if not is_network_master() or dead:
+	
+	if dead or not Gamestate.check_network_id(id):
 		return
 	
 	if Input.is_action_just_pressed("ui_select") and can_drop_bomb:
@@ -68,7 +69,8 @@ func _process(delta):
 		rpc("_dropbomb", result, self.id)
 		can_drop_bomb = false
 		$DropBombCouldown.start()
-	
+		
+	rpc_unreliable("_update_pos", position, direction)
 		
 sync func _dropbomb(pos, owner_id):
 	var bomb = bomb_scene.instance()
@@ -76,7 +78,7 @@ sync func _dropbomb(pos, owner_id):
 	bomb.owner_id = owner_id
 	arena.add_child(bomb)
 	
-slave func _update_pos(new_pos, new_direction):
+sync func _update_pos(new_pos, new_direction):
 	position = new_pos
 	direction = new_direction
 	_update_rot_and_animation()
