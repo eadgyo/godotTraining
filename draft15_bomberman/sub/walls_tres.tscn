@@ -1,19 +1,32 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://sprites/walls.png" type="Texture" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Brick" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 3
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Brick"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Wood" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 3
 frame = 1
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wood"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wood/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 3
 frame = 2

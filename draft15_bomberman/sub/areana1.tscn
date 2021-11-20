@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://sprites/walls.tres" type="TileSet" id=1]
+[ext_resource path="res://sub/Player.tscn" type="PackedScene" id=2]
 
 [node name="Arena" type="Node2D"]
 
@@ -31,3 +32,6 @@ __meta__ = {
 }
 
 [node name="Players" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 95, 161 )

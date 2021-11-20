@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="Draft 15 Bomberman"
+run/main_scene="res://sub/areana1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Gamestate="*res://scripts/gamestate.gd"
 
 [physics]
 

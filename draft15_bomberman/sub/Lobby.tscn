@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelTitleScene" type="Panel" parent="."]
+margin_right = 610.0
+margin_bottom = 661.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTitle" type="Label" parent="PanelTitleScene"]
+margin_left = 239.0
+margin_top = 11.0
+margin_right = 341.0
+margin_bottom = 38.0
+text = "Bomberman !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelAddress" type="Label" parent="PanelTitleScene"]
+margin_left = 146.0
+margin_top = 98.0
+margin_right = 215.0
+margin_bottom = 112.0
+text = "Address"
+
+[node name="JoinAddress" type="LineEdit" parent="PanelTitleScene"]
+margin_left = 140.0
+margin_top = 120.0
+margin_right = 267.0
+margin_bottom = 144.0
+text = "127.0.0.1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayerName" type="Label" parent="PanelTitleScene"]
+margin_left = 57.0
+margin_top = 51.0
+margin_right = 97.0
+margin_bottom = 65.0
+text = "Name"
+
+[node name="PlayerName" type="LineEdit" parent="PanelTitleScene"]
+margin_left = 143.0
+margin_top = 47.0
+margin_right = 236.0
+margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelStatus" type="Label" parent="PanelTitleScene"]
+margin_left = 150.0
+margin_top = 173.0
+margin_right = 221.0
+margin_bottom = 195.0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonHost" type="Button" parent="PanelTitleScene"]
+anchor_left = 0.085
+anchor_top = 0.258
+anchor_right = 0.1
+anchor_bottom = 0.258
+margin_left = -10.85
+margin_top = 0.46199
+margin_right = 51.0
+margin_bottom = 27.462
+text = "Host"
+
+[node name="ButtonJoin" type="Button" parent="PanelTitleScene"]
+anchor_right = 1.629
+anchor_bottom = 0.5
+margin_left = 42.0
+margin_top = 118.0
+margin_right = -878.69
+margin_bottom = -185.5
+text = "Join"
+
+[node name="PanelWaitPlayers" type="Panel" parent="."]
+margin_left = 66.0
+margin_top = 223.0
+margin_right = 506.0
+margin_bottom = 439.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTitle" type="Label" parent="PanelWaitPlayers"]
+margin_left = 197.0
+margin_top = 10.0
+margin_right = 237.0
+margin_bottom = 24.0
+text = "List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayerList" type="Label" parent="PanelWaitPlayers"]
+margin_left = 57.0
+margin_top = 56.0
+margin_right = 398.0
+margin_bottom = 257.0
+theme = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "-
+-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayerCount" type="Label" parent="PanelWaitPlayers"]
+margin_left = 320.0
+margin_top = 11.0
+margin_right = 407.0
+margin_bottom = 25.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonStart" type="Button" parent="PanelWaitPlayers"]
+anchor_left = 2.004
+anchor_top = 2.828
+anchor_right = 2.004
+anchor_bottom = 2.828
+margin_left = -734.76
+margin_top = -330.848
+margin_right = -577.76
+margin_bottom = -302.848
+text = "START"
