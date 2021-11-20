@@ -10,20 +10,19 @@ bg_color = Color( 0.2, 0.2, 0.2, 1 )
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 155.0
-margin_top = -324.0
-margin_right = 155.0
-margin_bottom = -324.0
+margin_left = 181.0
+margin_top = -11.0
+margin_right = -205.0
+margin_bottom = 72.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PanelTitleScene" type="Panel" parent="."]
-margin_left = -10.0
-margin_top = 328.0
-margin_right = 600.0
-margin_bottom = 989.0
+margin_left = 37.0
+margin_right = 647.0
+margin_bottom = 661.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,10 +118,10 @@ margin_bottom = 58.17
 text = "TEST"
 
 [node name="PanelWaitPlayers" type="Panel" parent="."]
-margin_left = 60.0
-margin_top = 555.0
-margin_right = 500.0
-margin_bottom = 771.0
+margin_left = 109.0
+margin_top = 269.0
+margin_right = 549.0
+margin_bottom = 485.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
