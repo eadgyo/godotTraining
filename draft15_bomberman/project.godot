@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Draft 15 Bomberman"
-run/main_scene="res://sub/areana1.tscn"
+run/main_scene="res://sub/Lobby.tscn"
 config/icon="res://icon.png"
 
 [autoload]

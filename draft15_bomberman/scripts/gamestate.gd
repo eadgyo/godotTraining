@@ -1,7 +1,14 @@
 extends Node
+signal game_started
+signal waiting_for_players
 
 var players = {}
 var player_nickname = "Dummy"
+var game_started = false
+
+
+var MAX_PLAYERS = 4
+var player_scene = preload("res://sub/Player.tscn")
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
@@ -16,6 +23,10 @@ func _player_disconnected(id):
 	if player_node:
 		player_node.queue_free()
 	players.erase(id)
+
+func check_network_id(id):
+	return id == get_tree().get_network_unique_id()
+	
 
 func _connected_ok():
 	# This method is only called from the newly connected
@@ -49,6 +60,9 @@ master func register_player_to_server(id, name):
 	# of course we could have it sync to avoid this
 	register_player(id, name)
 
+func get_players():
+	return players
+
 slave func register_player(id, name):
 	players[id] = name
 	
@@ -56,16 +70,27 @@ sync func start_game():
 	# Load the main game scene
 	var arena = load("res://sub/areana1.tscn").instance()
 	get_tree().get_root().add_child(arena)
+	#get_tree().get_root().replace_by(arena)
 	var spawn_positions = arena.get_node("SpawnPositions").get_children()
 	# Populate each player
 	var i = 0
 	for p_id in players:
 		var player_node = player_scene.instance()
 		player_node.set_name(str(p_id)) # Useful to retrieve the player node with a node path
+		player_node.id = p_id
 		player_node.position = spawn_positions[i].position
 		player_node.set_network_master(p_id)
 		arena.get_node("Players").add_child(player_node)
 		i += 1
 	emit_signal("game_started")
 	
-		
+func _stop_game(message):
+	print(message)
+	var lobby = load("res://sub/Lobby.tscn").instance()
+	get_tree().set_network_peer(null)
+	get_tree().get_root().replace_by(lobby)
+	
+	
+	
+func game_ready():
+	return true
