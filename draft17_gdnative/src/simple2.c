@@ -7,7 +7,8 @@
 #include <string.h>
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb/stb_image_write.h"
+#include <stb/stb_image_write.h>
+#include <curl/curl.h>
 
 #define FIELD_WIDTH 200
 #define FIELD_HEIGHT 200
@@ -27,6 +28,8 @@ const godot_gdnative_ext_nativescript_api_struct *nativescript_api = NULL;
 GDCALLINGCONV void *simple_constructor(godot_object *p_instance, void *p_method_data);
 GDCALLINGCONV void simple_destructor(godot_object *p_instance, void *p_method_data, void *p_user_data);
 godot_variant create_circle(godot_object *p_instance, void *p_method_data, void *p_user_data, int p_num_args, godot_variant **p_args);
+godot_variant libcurl_version(godot_object *p_instance, void *p_method_data, void *p_user_data, int p_num_args, godot_variant **p_args);
+
 
 #define FIELD_WIDTH 200
 #define FIELD_HEIGHT 200
@@ -87,6 +90,11 @@ void GDN_EXPORT godot_nativescript_init(void *p_handle) {
     // * The fifth and final parameter is a description of which function
     //   to call when the method gets called.
     nativescript_api->godot_nativescript_register_method(p_handle, "ADDER", "create_circle", attributes, get_data);
+
+    godot_instance_method get_libcurl = { NULL, NULL, NULL };
+    get_libcurl.method = &libcurl_version;
+
+    nativescript_api->godot_nativescript_register_method(p_handle, "ADDER", "libcurl_version", attributes, get_libcurl);
 }
 
 
@@ -162,4 +170,18 @@ godot_variant GDN_EXPORT create_circle(godot_object *p_instance, void *p_method_
     free(image_data);
     return ret;
 
+}
+
+godot_variant GDN_EXPORT libcurl_version(godot_object *p_instance, void *p_method_data, void *p_user_data, int p_num_args, godot_variant **p_args)
+{
+    godot_variant ret;
+    char *version_string = curl_version();
+
+    godot_string gdstring;
+    api->godot_string_parse_utf8_with_len(&gdstring, version_string, strlen(version_string));
+
+    api->godot_variant_new_string(&ret, &gdstring);
+    api->godot_string_destroy(&gdstring);
+
+    return ret;
 }

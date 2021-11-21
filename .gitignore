@@ -5,6 +5,7 @@
 !.vscode/extensions.json
 *.code-workspace
 godot-headers
+godot-cpp
 
 # Local History for Visual Studio Code
 .history/
