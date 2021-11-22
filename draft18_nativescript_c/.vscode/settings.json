@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "gdnative_api_struct.gen.h": "c"
+    }
+}
