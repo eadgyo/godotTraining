@@ -6,8 +6,13 @@
 *.code-workspace
 godot-headers
 godot-cpp
-#*.so
-#*.os
+*.so
+*.os
+.godot
+__pycache__/
+*.py[cod]
+*$py.class
+
 
 # Local History for Visual Studio Code
 .history/
